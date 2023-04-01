@@ -1,0 +1,270 @@
+country,partner_iso
+Afghanistan,afg
+Albania,alb
+Algeria,dza
+American Samoa,asm
+Andorra,and
+Angola,ago
+Anguilla,aia
+Antigua and Barbuda,atg
+Argentina,arg
+Armenia,arm
+Australia,aus
+Austria,aut
+Azerbaijan,aze
+Bahamas,bhs
+Bahrain,bhr
+Bangladesh,bgd
+Barbados,brb
+Belarus,blr
+Belgium ,bel
+Belize,blz
+Benin,ben
+Bermuda,bmu
+Bhutan,btn
+Bolivia,bol
+Bolivia (Plurinational State of),bol
+Bosnia Herzegovina,bih
+Bosnia and Herzegovina,bih
+Botswana,bwa
+Br. Virgin Isds,vgb
+British Virgin Islands,vgb
+Brazil,bra
+Brunei Darussalam,brn
+Bulgaria,bgr
+Burkina Faso,bfa
+Burundi,bdi
+Cambodia,khm
+Cameroon,cmr
+Canada,can
+Cape Verde,cpv
+Cabo Verde,cpv
+Cayman Isds,cym
+Cayman Islands,cym
+Central African Rep.,caf
+Central African Republic,caf
+Chad,tcd
+Chile,chl
+China,chn
+"China, People's Republic of",chn
+"China, Hong Kong SAR",hkg
+"China, Macao SAR",mac
+"China, Macao Special Administrative Region",mac
+Christmas Isds,cxr
+Cocos Isds,cck
+Colombia,col
+Comoros,com
+Congo,cog
+Cook Isds,cok
+Costa Rica,cri
+Cote d'Ivoire,civ
+Côte d'Ivoire,civ
+Croatia,hrv
+Cuba,cub
+Cyprus,cyp
+Czech Rep.,cze
+Czechoslovakia,csk
+Former Czechoslovakia,csk
+Dem. People's Rep. of Korea,prk
+Democratic People's Republic of Korea,prk
+Dem. Rep. of the Congo,cod
+Democratic Republic of the Congo,cod
+Denmark,dnk
+Djibouti,dji
+Dominica,dma
+Dominican Rep.,dom
+Dominican Republic,dom
+Ecuador,ecu
+Egypt,egy
+El Salvador,slv
+Equatorial Guinea,gnq
+Eritrea,eri
+Estonia,est
+Ethiopia,eth
+Former Ethiopia,eth
+Faeroe Isds,fro
+Falkland Isds (Malvinas),flk
+Fiji,fji
+Finland,fin
+Fmr Dem. Rep. of Germany,ddr
+Fmr Dem. Yemen,ymd
+Fmr Pacific Isds,pci
+Fmr USSR,sun
+Former USSR,sun
+Fmr Yugoslavia,yug
+Former Yugoslavia,yug
+Fr. South Antarctic Terr.,atf
+France (includes Monaco),fra
+France,fra
+French Guiana,guf
+French Polynesia,pyf
+FS Micronesia,fsm
+Micronesia,fsm
+Gabon,gab
+Gambia,gmb
+Georgia,geo
+Germany (former Federal Republic of Germany until 1990),deu
+Germany,deu
+Ghana,gha
+Gibraltar,gib
+Greece,grc
+Greenland,grl
+Grenada,grd
+Guadeloupe,glp
+Guam,gum
+Guatemala,gtm
+Guinea,gin
+Guinea-Bissau,gnb
+Guyana,guy
+Haiti,hti
+Heard Island and McDonald Islands,hmd
+Holy See (Vatican City State),vat
+Honduras,hnd
+Hungary,hun
+Iceland,isl
+Indonesia,idn
+Iran,irn
+"Iran, Islamic Republic of",irn
+Iraq,irq
+Ireland,irl
+Israel,isr
+Italy,ita
+Jamaica,jam
+Japan,jpn
+Jordan,jor
+Kazakhstan,kaz
+Kenya,ken
+Kiribati,kir
+Kuwait,kwt
+Kyrgyzstan,kgz
+Lao People's Dem. Rep.,lao
+Lao People's Democratic Republic,lao
+Latvia,lva
+Lebanon,lbn
+Lesotho,lso
+Liberia,lbr
+Libya,lby
+Lithuania,ltu
+Luxembourg,lux
+Madagascar,mdg
+Malawi,mwi
+Malaysia,mys
+Maldives,mdv
+Mali,mli
+Malta,mlt
+Marshall Isds,mhl
+Marshall Islands,mhl
+Martinique,mtq
+Mauritania,mrt
+Mauritius,mus
+Mayotte,myt
+Mexico,mex
+Mongolia,mng
+Montenegro,mne
+Montserrat,msr
+Morocco,mar
+Mozambique,moz
+Myanmar,mmr
+N. Mariana Isds,mnp
+Namibia,nam
+Nauru,nru
+Nepal,npl
+Neth. Antilles,ant
+Netherlands,nld
+New Caledonia,ncl
+New Zealand,nzl
+Nicaragua,nic
+Niger,ner
+Nigeria,nga
+Niue,niu
+Norfolk Isds,nfk
+Norway,nor
+Occ. Palestinian Terr.,pse
+Oman,omn
+Pakistan (former East and West Pakistan until 1962),pak
+Pakistan,pak
+Palau,plw
+Panama (excludes Panama Canal Zone until 1978),pan
+Panama,pan
+Papua New Guinea,png
+Paraguay,pry
+Peru,per
+Philippines,phl
+Pitcairn,pcn
+Poland,pol
+Portugal,prt
+Qatar,qat
+Rep. of Korea,kor
+Republic of Korea,kor
+Rep. of Moldova,mda
+Republic of Moldova,mda
+Reunion,reu
+Romania,rom
+Russian Federation,rus
+Rwanda,rwa
+Saint Helena,shn
+Saint Kitts and Nevis (includes Anguilla until 1981),kna
+Saint Lucia,lca
+Saint Pierre and Miquelon,spm
+Saint Vincent and the Grenadines,vct
+Samoa,wsm
+San Marino,smr
+Sao Tome and Principe,stp
+Saudi Arabia,sau
+Senegal,sen
+Serbia,srb
+Serbia and Montenegro,scg
+Seychelles,syc
+Sierra Leone,sle
+Singapore,sgp
+Slovakia,svk
+Slovenia,svn
+Solomon Isds,slb
+Solomon Islands,slb
+Somalia,som
+South Africa (Southern African Customs Union until 2000),zaf
+South Africa,zaf
+Spain,esp
+Sri Lanka,lka
+Sudan,sdn
+Suriname,sur
+Swaziland,swz
+Sweden,swe
+Switzerland,che
+Syria,syr
+Syrian Arab Republic,syr
+Tajikistan,tjk
+TFYR of Macedonia,mkd
+Republic of North Macedonia,mkd
+Thailand,tha
+Togo,tgo
+Tokelau,tkl
+Tonga,ton
+Trinidad and Tobago,tto
+Tunisia,tun
+Turkey,tur
+Turkmenistan,tkm
+Turks and Caicos Isds,tca
+Tuvalu,tuv
+Uganda,uga
+Ukraine,ukr
+United Arab Emirates,are
+United Kingdom,gbr
+United Kingdom of Great Britain and Northern Ireland,gbr
+United Rep. of Tanzania,tza
+United States Minor Outlying Islands,umi
+Uruguay,ury
+US Virgin Isds,vir
+"USA, Puerto Rico and US Virgin Islands (excludes Virgin Islands until 1981)",usa
+United States,usa
+Uzbekistan,uzb
+Vanuatu,vut
+Venezuela,ven
+Venezuela (Bolivarian Republic of),ven
+Viet Nam,vnm
+Wallis and Futuna Isds,wlf
+Western Sahara,esh
+Yemen (former Arab Republic of Yemen until 1991),yem
+Yemen: Former Yemen Arab Republic,yem
+Zambia,zmb
+Zimbabwe,zwe
