@@ -10,10 +10,13 @@ library(pacman)
 
 p_load(countrycode, knitr, DT, purrr,
        rlang, plm, collapse,stringr, tis, rlang,
-       tidyr, tidyverse, dplyr, ggplot2, 
-       imfr, ggpubr,ggpubfigs,kableExtra,
-       stargazer)
+       tidyr, tidyverse, dplyr, ggplot2,ggpubr,kableExtra,
+       stargazer,devtools)
 
+# Installing imfr package from github
+
+devtools::install_version("imfr", version="0.1.9")
+library(imfr)
 #Setting root directory
 here::i_am("decomposition.Rproj")
 library(here)

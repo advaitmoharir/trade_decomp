@@ -5,23 +5,6 @@
 # Status: Ongoing
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
-# SECTION 0: PREP
-# ------------------------------------------------------------------------------
-
-# Installing/Loading necessary packages
-library(pacman)
-
-p_load(countrycode, knitr, DT, purrr,
-       rlang, plm, collapse,stringr, tis, rlang,
-       tidyr, tidyverse, dplyr, ggplot2, 
-       imfr, ggpubr,ggpubfigs)
-
-#Setting root directory
-here::i_am("decomposition.Rproj")
-library(here)
-
 # ------------------------------------------------------------------------------
 # SECTION 1: LOADING and CLEANING GDP DATA
 # ------------------------------------------------------------------------------

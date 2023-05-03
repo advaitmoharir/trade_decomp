@@ -365,3 +365,4 @@ kable(decomp_services, col.names =
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods_services.tex")
 
+
