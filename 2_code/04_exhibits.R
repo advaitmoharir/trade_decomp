@@ -340,7 +340,7 @@ decomposition<-decomposition%>%
   mutate(across(2:9, round, 2))
 kable(decomposition, col.names = 
         c("Period","$r$","$p$","$y^{*}$","$y$",
-          "$g$","$x","$m$", "$s$"),format="latex",escape = F,
+          "$g$","$x$","$m$", "$s$"),format="latex",escape = F,
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods.tex")
 
