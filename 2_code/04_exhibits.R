@@ -361,7 +361,7 @@ decomp_services<-decomp.table(gs, starts2,ends2)%>%
 
 kable(decomp_services, col.names = 
         c("Period","$r$","$p$","$y^{*}$","$y$",
-          "$g$","$x","$m$", "$s$"),format="latex",escape = F,
+          "$g$","$x$","$m$", "$s$"),format="latex",escape = F,
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods_services.tex")
 
