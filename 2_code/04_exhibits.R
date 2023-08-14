@@ -2,7 +2,7 @@
 # Title: 04_exhibits
 #Purpose: Creates and outputs tables and figures
 # Authors: Advait Moharir
-# Status: Ongoing
+# Status: Complete
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
 
@@ -26,21 +26,21 @@ india<-india%>%
 p1<-ggscatter(india,
           x="td", y="TR_abs", 
           add="reg.line", add.params = 
-            list(color="blue"),
+            list(color="black"),
           xlab="Trade Balance", ylab="Trade Ratio")+
   stat_cor(method = "pearson")
-ggsave("5_figures/Figure1.jpeg", width=8,height=4)
+ggsave("5_figures/Figure_1.png",dpi=1000, width=8,height=4)
 
 #Fig2: Terms of Trade
 
 p2<-india%>%
   select(year,R)%>%
   mutate(R=R*100)%>%
-ggbarplot(x="year", y="R", fill="red", 
+ggbarplot(x="year", y="R", fill="darkgrey", 
        xlab="", ylab="Terms of Trade (%)")+
   scale_y_continuous(breaks=seq(-40,30,by=10))
   
-ggsave("5_figures/Figure2.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_2.png",dpi=1000, width=8, height=4)
 
 #Figure-3: Decomp Bar Graph
 
@@ -48,13 +48,14 @@ contrib<-select(india, year, R, RMI, TR, RA)
 p3<-contrib%>%pivot_longer(2:5)%>%
   ggbarplot(x="year", y="value", fill="name",
             xlab="", ylab="", legend.title="")+
-  scale_fill_discrete(labels=c("Terms of Trade",
+  scale_fill_manual(labels=c("Terms of Trade",
                                "Relative Absorption",
                                "Relative Import Intensity",
-                               "Trade Ratio"))
+                               "Trade Ratio"), 
+                    values=c("white", "grey80","grey40", "black"))
 
 
-ggsave("5_figures/Figure3.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_3.png",dpi=1000, width=8, height=4)
 
 
 #Figure 4: Decomposition over time(Goods, Indexed)
@@ -63,13 +64,18 @@ p4<-contrib%>%
   mutate(R=R-R[1],RMI=RMI-RMI[1],TR=TR-TR[1])%>%
   pivot_longer(2:5)%>%
   ggline(x="year", y="value", color="name",
-            xlab="", ylab="", legend.title="")+
-  scale_color_discrete(labels=c("Terms of Trade",
+            xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(1,2,3,4),labels=c("Terms of Trade",
+                                 "Relative Absorption",
+                                 "Relative Import Intensity",
+                                 "Trade Ratio"))+
+  scale_color_manual(values=c("black","black","black","black"),labels=c("Terms of Trade",
                                "Relative Absorption",
                                "Relative Import Intensity",
                                "Trade Ratio"))
 
-ggsave("5_figures/Figure4.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_4.png",dpi=1000, width=8, height=4)
 
 #---------------Counterfactuals--------------------#
 
@@ -104,13 +110,18 @@ cf$V1<-c(1980:2021)
 p5<-cf%>%
 select(V1,V2, cf1,cf2,cf3)%>%
 pivot_longer(2:5)%>% 
-ggline(x="V1", y="value", color="name",
-                xlab="", ylab="", legend.title="")+
-scale_color_discrete(name="", labels=c("Fixed Terms of Trade", 
+  ggline(x="V1", y="value", color="name",
+         xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(4,3,2,1), labels=c("Fixed Terms of Trade", 
+                                                    "Fixed Relative Expenditure Growth",
+                                                    "Fixed Relative Import Intensity",
+                                                    "Historical"))+
+scale_color_manual(values=c("black","black","black","black"),name="", labels=c("Fixed Terms of Trade", 
               "Fixed Relative Expenditure Growth",
               "Fixed Relative Import Intensity",
               "Historical"))
-ggsave("5_figures/Figure5.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_5.png",dpi=1000, width=8, height=4)
 
 # Figure6: Counterfactual 2
 
@@ -118,12 +129,19 @@ p6<-cf%>%
   select(V1,V2, cf4,cf5,cf6)%>%
   pivot_longer(2:5)%>% 
   ggline(x="V1", y="value", color="name",
-         xlab="", ylab="",ylim=c(-2,1), legend.title="")+
-  scale_color_discrete(name="", labels=c("Terms of Trade Only", "Relative Expenditure Growth Only",
-                                         "Relative Import Intensity Only",
-                                         "Historical"))+
+         xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(4,3,2,1), labels=c("Terms of Trade Only", 
+                                                    "Relative Expenditure Growth Only",
+                                                    "Relative Import Intensity Only",
+                                                    "Historical"))+
+  scale_color_manual(values=c("black","black","black","black"),name="",
+                     labels=c("Terms of Trade Only", 
+                              "Relative Expenditure Growth Only",
+                              "Relative Import Intensity Only",
+                              "Historical"))+
   scale_y_continuous(breaks=seq(-2,1,by=0.5))
-ggsave("5_figures/Figure6.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_6.png",dpi=1000, width=8, height=4)
 
 #Figure 7: India's CAB and KAB
 
@@ -135,13 +153,16 @@ p7<-gdp%>%
          cap=cap/gdp_nom)%>%
   pivot_longer(3:4)%>%
   ggline(x="year", y="value",color="name", 
-         legend.title="", xlab="", ylab="")+
-  scale_color_discrete(name="", 
+         legend.title="", xlab="", ylab="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round' )+
+  scale_linetype_manual(values=c(1,2), labels=c("Capital Account Balance", 
+                                                "Current Account Balance"))+
+  scale_color_manual(name="", values=c("black", "black"),
                        labels=c("Capital Account Balance", 
                                 "Current Account Balance"))+
   scale_y_continuous(breaks=seq(-0.05,0.1,by=0.025), 
                      labels=scales::percent)
-ggsave("5_figures/Figure7.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_7.jpeg", width=8, height=4)
 
 # ------------------------------------------------------------------------------
 # SECTION 2: Figures (Appendix)
@@ -340,7 +361,7 @@ decomposition<-decomposition%>%
   mutate(across(2:9, round, 2))
 kable(decomposition, col.names = 
         c("Period","$r$","$p$","$y^{*}$","$y$",
-          "$g$","$x","$m$", "$s$"),format="latex",escape = F,
+          "$g$","$x$","$m$", "$s$"),format="latex",escape = F,
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods.tex")
 
@@ -361,7 +382,7 @@ decomp_services<-decomp.table(gs, starts2,ends2)%>%
 
 kable(decomp_services, col.names = 
         c("Period","$r$","$p$","$y^{*}$","$y$",
-          "$g$","$x","$m$", "$s$"),format="latex",escape = F,
+          "$g$","$x$","$m$", "$s$"),format="latex",escape = F,
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods_services.tex")
 

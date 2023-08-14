@@ -2,7 +2,7 @@
 # Title: 03_decomp_goods_services
 #Purpose: Implements trade decomposition, including services
 # Authors: Advait Moharir
-# Status: Ongoing
+# Status: Complete
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
 

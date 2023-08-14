@@ -2,7 +2,7 @@
 # Title: 00_master
 # Purpose: Loads required packages and sources all files
 # Authors: Advait Moharir
-# Status: Ongoing
+# Status: Complete
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
 # Installing/Loading necessary packages
@@ -17,6 +17,10 @@ p_load(countrycode, knitr, DT, purrr,
 
 devtools::install_version("imfr", version="0.1.9")
 library(imfr)
+
+#IMPORTANT: Run till line 19 once, then comment out line 18,
+# and run the whole file.
+
 #Setting root directory
 here::i_am("decomposition.Rproj")
 library(here)

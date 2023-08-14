@@ -2,7 +2,7 @@
 # Title: 02_decomp
 #Purpose: Implements trade decomposition
 # Authors: Advait Moharir
-# Status: Ongoing
+# Status: Complete
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
 
