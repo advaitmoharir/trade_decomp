@@ -11,7 +11,7 @@ library(pacman)
 p_load(countrycode, knitr, DT, purrr,
        rlang, plm, collapse,stringr, tis, rlang,
        tidyr, tidyverse, dplyr, ggplot2,ggpubr,kableExtra,
-       stargazer,devtools)
+       stargazer,devtools,rtf)
 
 # Installing imfr package from github
 

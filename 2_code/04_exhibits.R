@@ -6,7 +6,8 @@
 # Date: 05-03-2023
 # ------------------------------------------------------------------------------
 
-#Read csv
+# Read csvs
+
 india<-read.csv("4_output/decomp_india.csv")
 gdp<-read.csv("3_raw/gdp_nom_lcu.csv")
 flows<-read.csv("3_raw/fin_flows.csv")
@@ -178,12 +179,13 @@ a1<-gs%>%
   pivot_longer(2:5)%>%
   ggbarplot(x="year", y="value", fill="name",
             xlab="", ylab="", legend.title="")+
-  scale_fill_discrete(labels=c("Terms of Trade",
-                               "Relative Absorption",
-                               "Relative Import Intensity",
-                               "Trade Ratio"))
+  scale_fill_manual(labels=c("Terms of Trade",
+                             "Relative Absorption",
+                             "Relative Import Intensity",
+                             "Trade Ratio"), 
+                    values=c("white", "grey80","grey40", "black"))
 
-ggsave("5_figures/Figure8.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_A1.png",dpi=1000, width=8, height=4)
 
 
 #Figure A2: Decomposition over time(Goods+Services, Indexed)
@@ -193,14 +195,20 @@ a2<-gs%>%
   mutate(R=R-R[1],RMI=RMI-RMI[1],TR=TR-TR[1])%>%
   pivot_longer(2:5)%>%
   ggline(x="year", y="value", color="name",
-         xlab="", ylab="", legend.title="")+
-  scale_color_discrete(labels=c("Terms of Trade",
-                                "Relative Absorption",
-                                "Relative Import Intensity",
-                                "Trade Ratio"))+
+         xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(1,2,3,4),labels=c("Terms of Trade",
+                                                   "Relative Absorption",
+                                                   "Relative Import Intensity",
+                                                   "Trade Ratio"))+
+  scale_color_manual(values=c("black","black","black","black"),labels=c("Terms of Trade",
+                                                                        "Relative Absorption",
+                                                                        "Relative Import Intensity",
+                                                                        "Trade Ratio"))+
+
   scale_y_continuous(breaks=seq(-0.5,0.5,by=0.1))
 
-ggsave("5_figures/Figure9.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_A2.png", width=8, height=4)
 
 #Figure A2: RA/RMI over time (both datasets)
 
@@ -210,14 +218,21 @@ a3<-gs%>%
   select(year,RA,RMI,RA_gs,RMI_gs)%>%
   pivot_longer(2:5)%>%
   ggline(x="year", y="value", color="name",
-         xlab="", ylab="", legend.title="")+
-  scale_color_discrete(labels=c("Relative Absorption (Goods Only)",
+         xlab="", ylab="", legend.title="",linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(1,2,3,4),labels=c("Relative Absorption (Goods Only)",
+                                                   "Relative Absorption (Goods+Services)",
+                                                   "Relative Import Intensity (Goods Only)",
+                                                   "Relative Import Intensity (Goods+Services)"))+
+  
+  scale_color_manual(values=c("black","black","black","black"),
+                     labels=c("Relative Absorption (Goods Only)",
                                 "Relative Absorption (Goods+Services)",
                                 "Relative Import Intensity (Goods Only)",
                                 "Relative Import Intensity (Goods+Services)"))+
   theme(legend.text=element_text(size=6))
   
-ggsave("5_figures/Figure10.jpeg", width=8, height=4)
+ggsave("5_figures/Figure_A3.jpeg",dpi=1000, width=8, height=4)
 
 
 # Counterfactuals
@@ -253,27 +268,35 @@ p11<-cf%>%
   select(V1,V2, cf1,cf2,cf3)%>%
   pivot_longer(2:5)%>% 
   ggline(x="V1", y="value", color="name",
-         xlab="", ylab="", legend.title="")+
-  scale_color_discrete(name="", labels=c("Fixed Terms of Trade", 
-                                         "Fixed Relative Expenditure Growth",
-                                         "Fixed Relative Import Intensity",
-                                         "Historical"))
-ggsave("5_figures/Figure11.jpeg", width=8, height=4)
-
+         xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(4,3,2,1), labels=c("Fixed Terms of Trade", 
+                                                    "Fixed Relative Expenditure Growth",
+                                                    "Fixed Relative Import Intensity",
+                                                    "Historical"))+
+  scale_color_manual(values=c("black","black","black","black"),name="", labels=c("Fixed Terms of Trade", 
+                                                                                 "Fixed Relative Expenditure Growth",
+                                                                                 "Fixed Relative Import Intensity",
+                                                                                 "Historical"))
+ggsave("5_figures/Figure_A4.png",dpi=1000, width=8, height=4)
 # Figure 12: Counterfactual 2
 
 p12<-cf%>%
   select(V1,V2, cf4,cf5,cf6)%>%
   pivot_longer(2:5)%>% 
   ggline(x="V1", y="value", color="name",
-         xlab="", ylab="", legend.title="")+
-  scale_color_discrete(name="", labels=c("Terms of Trade Only", "Relative Expenditure Growth Only",
-                                         "Relative Import Intensity Only",
-                                         "Historical"))+
-  scale_y_continuous(breaks=seq(-0.5,0.5,by=0.25))
-ggsave("5_figures/Figure12.jpeg", width=8, height=4)
-
-
+         xlab="", ylab="", legend.title="", linetype="name", 
+         plot_type ="l", size=0.7, lineend='round')+
+  scale_linetype_manual(values=c(4,3,2,1), labels=c("Terms of Trade Only", 
+                                                    "Relative Expenditure Growth Only",
+                                                    "Relative Import Intensity Only",
+                                                    "Historical"))+
+  scale_color_manual(values=c("black","black","black","black"),name="",
+                     labels=c("Terms of Trade Only", 
+                              "Relative Expenditure Growth Only",
+                              "Relative Import Intensity Only",
+                              "Historical"))
+ggsave("5_figures/Figure_A5.png",dpi=1000, width=8, height=4)
 
 
 
@@ -306,18 +329,18 @@ sumstat<-india%>%
   
   # Set order of summary statistics 
   select(variable, mean, sd, min, max)%>%
+  rename(Mean=mean, SD=sd, Min=min, Max=max)%>%
   mutate_if(is.numeric, ~ . * 100)%>%
   # Round all numeric variables to one decimal point
 mutate(across(2:5, round, 2))
 
-#Export as tex
-kable(sumstat,
-      booktabs=T, col.names = c("Variable",
-                                "Mean", "St. Dev",
-                                "Min", "Max"), format="latex")%>%
-  save_kable("5_figures/sumstat.tex")
 
+# Export as word doc
 
+rtffile <- RTF("5_figures/sumstat.doc")  # this can be an .rtf or a .doc
+addParagraph(rtffile, "Table 1. Summary Statistics")
+addTable(rtffile, as.data.frame(sumstat))
+done(rtffile)
 
 # Table-2 Decomposition over periods (goods)
 
@@ -365,6 +388,17 @@ kable(decomposition, col.names =
       booktabs=T)%>%
   save_kable("5_figures/decomp_goods.tex")
 
+#Pull word file for editing
+
+colnames(decomposition)<-c("Period","r","p","y*","y",
+                           "g","x","m", "s")
+
+rtffile <- RTF("5_figures/decomp.doc")
+addParagraph(rtffile, "Table 2. Annualised period-wise decomposition of India’s merchandise trade ratio")
+addTable(rtffile, as.data.frame(decomposition))
+done(rtffile)
+
+
 
 # ------------------------------------------------------------------------------
 # SECTION 4: Tables (Appendix)
@@ -387,3 +421,12 @@ kable(decomp_services, col.names =
   save_kable("5_figures/decomp_goods_services.tex")
 
 
+# Writing output to word file (for journal)
+
+colnames(decomp_services)<-c("Period","r","p","y*","y",
+                           "g","x","m", "s")
+
+rtffile <- RTF("5_figures/decomp_services.doc")
+addParagraph(rtffile, "Table 2. Annualised period-wise decomposition of India’s trade ratio")
+addTable(rtffile, as.data.frame(decomp_services))
+done(rtffile)
