@@ -220,17 +220,17 @@ a3<-gs%>%
   ggline(x="year", y="value", color="name",
          xlab="", ylab="", legend.title="",linetype="name", 
          plot_type ="l", size=0.7, lineend='round')+
-  scale_linetype_manual(values=c(1,2,3,4),labels=c("Relative Absorption (Goods Only)",
-                                                   "Relative Absorption (Goods+Services)",
-                                                   "Relative Import Intensity (Goods Only)",
-                                                   "Relative Import Intensity (Goods+Services)"))+
+  scale_linetype_manual(values=c(1,2,3,4),labels=c("RA (Goods Only)",
+                                                   "RA (Goods+Services)",
+                                                   "RMI (Goods Only)",
+                                                   "RMI (Goods+Services)"))+
   
   scale_color_manual(values=c("black","black","black","black"),
-                     labels=c("Relative Absorption (Goods Only)",
-                                "Relative Absorption (Goods+Services)",
-                                "Relative Import Intensity (Goods Only)",
-                                "Relative Import Intensity (Goods+Services)"))+
-  theme(legend.text=element_text(size=6))
+                     labels=c("RA (Goods Only)",
+                                "RA (Goods+Services)",
+                                "RMI (Goods Only)",
+                                "RMI (Goods+Services)"))+
+  theme(legend.text=element_text(size=10))
   
 ggsave("5_figures/Figure_A3.jpeg",dpi=1000, width=8, height=4)
 
@@ -334,6 +334,13 @@ sumstat<-india%>%
   # Round all numeric variables to one decimal point
 mutate(across(2:5, round, 2))
 
+#Export as tex
+
+kable(sumstat,
+      booktabs=T, col.names = c("Variable",
+                                "Mean", "St. Dev",
+                                "Min", "Max"), format="latex")%>%
+  save_kable("5_figures/sumstat.tex")
 
 # Export as word doc
 
