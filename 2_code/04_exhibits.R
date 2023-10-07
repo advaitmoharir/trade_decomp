@@ -406,6 +406,52 @@ addTable(rtffile, as.data.frame(decomposition))
 done(rtffile)
 
 
+# Table-3: Average export and import growth
+
+trade<-india%>%select(year, export_real, import_real)
+
+avg<-function(data, start, end){
+  y<-data.frame(export_real=0, import_real=0)
+  y$export_real<-((data[data$year==end, 'export_real'] - data[data$year==start, 'export_real'])/(data[data$year==start, 'export_real']))/(data[data$year==end, 'year']-data[data$year==start, 'year'])
+  y$import_real<-((data[data$year==end, 'import_real'] - data[data$year==start, 'import_real'])/(data[data$year==start, 'import_real']))/(data[data$year==end, 'year']-data[data$year==start, 'year'])
+  return(y)
+}
+
+avg_tab <- function(data, starts, ends){
+  x <- avg(trade, starts[1], ends[1])
+  for (i in 2:length(starts)){
+    x <- rbind(x, avg(trade, starts[i], ends[i]))
+  }
+  x$period <- paste(starts, ends, sep='-')
+  #x <- x[,c(7, 1:6)]
+  return(x)
+}
+
+starts <- c( 1980, 1991, 1999, 2003, 2012, 2016)
+ends <- c(1991, 1999, 2003, 2012, 2016, 2021)
+avg_table <- avg_tab(trade, starts, ends)%>%
+  select(3, 1:2)%>%
+  mutate(export_real=export_real*100, import_real=import_real*100)%>%
+  mutate(across(2:3, round, 2))
+
+#Writing output to tex file
+
+kable(avg_table, col.names = 
+        c("Period", "Real Exports", "Real Imports"),format="latex",
+      booktabs=T)%>%
+  save_kable("5_figures/avg_trade_growth.tex")
+
+
+# Writing output to word file (for journal)
+
+colnames(avg_table)<-c("Period", "Real Exports", "Real Imports")
+rtffile <- RTF("5_figures/avg_table.doc")
+addParagraph(rtffile, "Table 3 Periodwise growth of India's exports and imports")
+addTable(rtffile, as.data.frame(avg_table))
+done(rtffile)
+
+
+
 
 # ------------------------------------------------------------------------------
 # SECTION 4: Tables (Appendix)
