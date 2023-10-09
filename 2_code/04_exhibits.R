@@ -28,8 +28,7 @@ p1<-ggscatter(india,
           x="td", y="TR_abs", 
           add="reg.line", add.params = 
             list(color="black"),
-          xlab="Trade Balance", ylab="Trade Ratio")+
-  stat_cor(method = "pearson")
+          xlab="Trade Balance", ylab="Trade Ratio")
 ggsave("5_figures/Figure_1.png",dpi=1000, width=8,height=4)
 
 #Fig2: Terms of Trade
@@ -53,7 +52,8 @@ p3<-contrib%>%pivot_longer(2:5)%>%
                                "Relative Absorption",
                                "Relative Import Intensity",
                                "Trade Ratio"), 
-                    values=c("white", "grey80","grey40", "black"))
+                    values=c("white", "grey80","grey40", "black"))+
+  theme(legend.position="bottom")
 
 
 ggsave("5_figures/Figure_3.png",dpi=1000, width=8, height=4)
@@ -67,14 +67,15 @@ p4<-contrib%>%
   ggline(x="year", y="value", color="name",
             xlab="", ylab="", legend.title="", linetype="name", 
          plot_type ="l", size=0.7, lineend='round')+
-  scale_linetype_manual(values=c(1,2,3,4),labels=c("Terms of Trade",
+  scale_linetype_manual(values=c(4,2,3,1),labels=c("Terms of Trade",
                                  "Relative Absorption",
                                  "Relative Import Intensity",
                                  "Trade Ratio"))+
   scale_color_manual(values=c("black","black","black","black"),labels=c("Terms of Trade",
                                "Relative Absorption",
                                "Relative Import Intensity",
-                               "Trade Ratio"))
+                               "Trade Ratio"))+
+  theme(legend.position="bottom")
 
 ggsave("5_figures/Figure_4.png",dpi=1000, width=8, height=4)
 
@@ -121,7 +122,8 @@ pivot_longer(2:5)%>%
 scale_color_manual(values=c("black","black","black","black"),name="", labels=c("Fixed Terms of Trade", 
               "Fixed Relative Expenditure Growth",
               "Fixed Relative Import Intensity",
-              "Historical"))
+              "Historical"))+
+  theme(legend.position="bottom")
 ggsave("5_figures/Figure_5.png",dpi=1000, width=8, height=4)
 
 # Figure6: Counterfactual 2
@@ -141,7 +143,8 @@ p6<-cf%>%
                               "Relative Expenditure Growth Only",
                               "Relative Import Intensity Only",
                               "Historical"))+
-  scale_y_continuous(breaks=seq(-2,1,by=0.5))
+  scale_y_continuous(breaks=seq(-2,1,by=0.5))+
+  theme(legend.position="bottom")
 ggsave("5_figures/Figure_6.png",dpi=1000, width=8, height=4)
 
 #Figure 7: India's CAB and KAB
@@ -162,7 +165,8 @@ p7<-gdp%>%
                        labels=c("Capital Account Balance", 
                                 "Current Account Balance"))+
   scale_y_continuous(breaks=seq(-0.05,0.1,by=0.025), 
-                     labels=scales::percent)
+                     labels=scales::percent)+
+  theme(legend.position="bottom")
 ggsave("5_figures/Figure_7.jpeg", width=8, height=4)
 
 # ------------------------------------------------------------------------------
@@ -183,7 +187,8 @@ a1<-gs%>%
                              "Relative Absorption",
                              "Relative Import Intensity",
                              "Trade Ratio"), 
-                    values=c("white", "grey80","grey40", "black"))
+                    values=c("white", "grey80","grey40", "black"))+
+  theme(legend.position="bottom")
 
 ggsave("5_figures/Figure_A1.png",dpi=1000, width=8, height=4)
 
@@ -197,7 +202,7 @@ a2<-gs%>%
   ggline(x="year", y="value", color="name",
          xlab="", ylab="", legend.title="", linetype="name", 
          plot_type ="l", size=0.7, lineend='round')+
-  scale_linetype_manual(values=c(1,2,3,4),labels=c("Terms of Trade",
+  scale_linetype_manual(values=c(4,2,3,1),labels=c("Terms of Trade",
                                                    "Relative Absorption",
                                                    "Relative Import Intensity",
                                                    "Trade Ratio"))+
@@ -206,7 +211,8 @@ a2<-gs%>%
                                                                         "Relative Import Intensity",
                                                                         "Trade Ratio"))+
 
-  scale_y_continuous(breaks=seq(-0.5,0.5,by=0.1))
+  scale_y_continuous(breaks=seq(-0.5,0.5,by=0.1))+
+  theme(legend.position="bottom")
 
 ggsave("5_figures/Figure_A2.png", width=8, height=4)
 
@@ -230,7 +236,7 @@ a3<-gs%>%
                                 "RA (Goods+Services)",
                                 "RMI (Goods Only)",
                                 "RMI (Goods+Services)"))+
-  theme(legend.text=element_text(size=10))
+  theme(legend.text=element_text(size=10), legend.position = "bottom")
   
 ggsave("5_figures/Figure_A3.jpeg",dpi=1000, width=8, height=4)
 
@@ -277,7 +283,8 @@ p11<-cf%>%
   scale_color_manual(values=c("black","black","black","black"),name="", labels=c("Fixed Terms of Trade", 
                                                                                  "Fixed Relative Expenditure Growth",
                                                                                  "Fixed Relative Import Intensity",
-                                                                                 "Historical"))
+                                                                                 "Historical"))+
+  theme(legend.position="bottom")
 ggsave("5_figures/Figure_A4.png",dpi=1000, width=8, height=4)
 # Figure 12: Counterfactual 2
 
@@ -295,7 +302,8 @@ p12<-cf%>%
                      labels=c("Terms of Trade Only", 
                               "Relative Expenditure Growth Only",
                               "Relative Import Intensity Only",
-                              "Historical"))
+                              "Historical"))+
+  theme(legend.position="bottom")
 ggsave("5_figures/Figure_A5.png",dpi=1000, width=8, height=4)
 
 
