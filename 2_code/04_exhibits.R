@@ -29,7 +29,7 @@ p1<-ggscatter(india,
           add="reg.line", add.params = 
             list(color="black"),
           xlab="Trade Balance", ylab="Trade Ratio")
-ggsave("5_figures/Figure_1.png",dpi=1000, width=8,height=4)
+ggsave("5_figures/Figure_1.png",dpi=1000, width=8,height=4.76)
 
 #Fig2: Terms of Trade
 
@@ -40,7 +40,7 @@ ggbarplot(x="year", y="R", fill="darkgrey",
        xlab="", ylab="Terms of Trade (%)")+
   scale_y_continuous(breaks=seq(-40,30,by=10))
   
-ggsave("5_figures/Figure_2.png",dpi=1000, width=8, height=4)
+ggsave("5_figures/Figure_2.png",dpi=1000, width=8, height=4.76)
 
 #Figure-3: Decomp Bar Graph
 
@@ -56,7 +56,7 @@ p3<-contrib%>%pivot_longer(2:5)%>%
   theme(legend.position="bottom")
 
 
-ggsave("5_figures/Figure_3.png",dpi=1000, width=8, height=4)
+ggsave("5_figures/Figure_3.png",dpi=1000, width=8, height=4.76)
 
 
 #Figure 4: Decomposition over time(Goods, Indexed)
@@ -75,9 +75,9 @@ p4<-contrib%>%
                                "Relative Absorption",
                                "Relative Import Intensity",
                                "Trade Ratio"))+
-  theme(legend.position="bottom")
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
 
-ggsave("5_figures/Figure_4.png",dpi=1000, width=8, height=4)
+ggsave("5_figures/Figure_4.png",dpi=1000, width=8, height=4.76)
 
 #---------------Counterfactuals--------------------#
 
@@ -123,8 +123,8 @@ scale_color_manual(values=c("black","black","black","black"),name="", labels=c("
               "Fixed Relative Expenditure Growth",
               "Fixed Relative Import Intensity",
               "Historical"))+
-  theme(legend.position="bottom")
-ggsave("5_figures/Figure_5.png",dpi=1000, width=8, height=4)
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
+ggsave("5_figures/Figure_5.png",dpi=1000, width=8, height=4.76)
 
 # Figure6: Counterfactual 2
 
@@ -144,8 +144,8 @@ p6<-cf%>%
                               "Relative Import Intensity Only",
                               "Historical"))+
   scale_y_continuous(breaks=seq(-2,1,by=0.5))+
-  theme(legend.position="bottom")
-ggsave("5_figures/Figure_6.png",dpi=1000, width=8, height=4)
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
+ggsave("5_figures/Figure_6.png",dpi=1000, width=8, height=4.76)
 
 #Figure 7: India's CAB and KAB
 
@@ -166,8 +166,8 @@ p7<-gdp%>%
                                 "Current Account Balance"))+
   scale_y_continuous(breaks=seq(-0.05,0.1,by=0.025), 
                      labels=scales::percent)+
-  theme(legend.position="bottom")
-ggsave("5_figures/Figure_7.jpeg", width=8, height=4)
+  theme(legend.position="bottom",legend.key.size=unit(1,"cm"))
+ggsave("5_figures/Figure_7.jpeg", width=8, height=4.76)
 
 # ------------------------------------------------------------------------------
 # SECTION 2: Figures (Appendix)
@@ -190,7 +190,7 @@ a1<-gs%>%
                     values=c("white", "grey80","grey40", "black"))+
   theme(legend.position="bottom")
 
-ggsave("5_figures/Figure_A1.png",dpi=1000, width=8, height=4)
+ggsave("5_figures/Figure_A1.png",dpi=1000, width=8, height=4.76)
 
 
 #Figure A2: Decomposition over time(Goods+Services, Indexed)
@@ -212,9 +212,9 @@ a2<-gs%>%
                                                                         "Trade Ratio"))+
 
   scale_y_continuous(breaks=seq(-0.5,0.5,by=0.1))+
-  theme(legend.position="bottom")
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
 
-ggsave("5_figures/Figure_A2.png", width=8, height=4)
+ggsave("5_figures/Figure_A2.png", width=8, height=4.76)
 
 #Figure A2: RA/RMI over time (both datasets)
 
@@ -236,9 +236,10 @@ a3<-gs%>%
                                 "RA (Goods+Services)",
                                 "RMI (Goods Only)",
                                 "RMI (Goods+Services)"))+
-  theme(legend.text=element_text(size=10), legend.position = "bottom")
+  theme(legend.text=element_text(size=8), legend.position = "bottom",
+        legend.key.size=unit(1,"cm"))
   
-ggsave("5_figures/Figure_A3.jpeg",dpi=1000, width=8, height=4)
+ggsave("5_figures/Figure_A3.jpeg",dpi=1000, width=8, height=4.76)
 
 
 # Counterfactuals
@@ -284,8 +285,8 @@ p11<-cf%>%
                                                                                  "Fixed Relative Expenditure Growth",
                                                                                  "Fixed Relative Import Intensity",
                                                                                  "Historical"))+
-  theme(legend.position="bottom")
-ggsave("5_figures/Figure_A4.png",dpi=1000, width=8, height=4)
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
+ggsave("5_figures/Figure_A4.png",dpi=1000, width=8, height=4.76)
 # Figure 12: Counterfactual 2
 
 p12<-cf%>%
@@ -303,8 +304,8 @@ p12<-cf%>%
                               "Relative Expenditure Growth Only",
                               "Relative Import Intensity Only",
                               "Historical"))+
-  theme(legend.position="bottom")
-ggsave("5_figures/Figure_A5.png",dpi=1000, width=8, height=4)
+  theme(legend.text=element_text(size=8),legend.position="bottom",legend.key.size=unit(1,"cm"))
+ggsave("5_figures/Figure_A5.png",dpi=1000, width=8, height=4.76)
 
 
 
